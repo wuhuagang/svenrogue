@@ -37,6 +37,18 @@ export const constantRouterMap = [
       path: 'dashboard',
       component: () => import('@/views/dashboard/index')
     }]
+  },
+  {
+    path: '/index',
+    component: Layout,
+    children: [
+      {
+        path: 'list',
+        component: () => import('@/views/article/components/list/index'),
+        name: 'ArticleList',
+        meta: { title: '博客列表', icon: 'list' }
+      }
+    ]
   }
 ]
 /**

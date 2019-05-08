@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-      <h3 class="title">vue-admin-template</h3>
+      <h1 class="title">sven_rogue</h1>
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -33,8 +33,6 @@
         </el-button>
       </el-form-item>
       <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: admin</span>
         <social/>
     </div></el-form>
   </div>
@@ -158,8 +156,8 @@ $light_gray:#eee;
 </style>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-$bg:#2d3a4b;
-$dark_gray:#889aa4;
+$bg: #000000;
+$dark_gray: #ffe6d7;
 $light_gray:#eee;
 .login-container {
   position: fixed;
@@ -179,6 +177,7 @@ $light_gray:#eee;
     font-size: 14px;
     color: #fff;
     margin-bottom: 10px;
+    text-align: center;
     span {
       &:first-of-type {
         margin-right: 16px;
