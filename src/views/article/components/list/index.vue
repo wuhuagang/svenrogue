@@ -1,11 +1,6 @@
 <template>
   <div class="app-container">
-    <el-table v-loading="listLoading" :data="list" fit highlight-current-row style="width: 100%">
-      <el-table-column align="center" width="width: 100%">
-        <article-item/>
-      </el-table-column>
-    </el-table>
-
+    <article-item v-for="(article) in articles" :article="article" :key="article.id"/>
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
   </div>
 </template>
@@ -30,7 +25,10 @@ export default {
   },
   data() {
     return {
-      list: [],
+      articles: [
+        { id: '1', title: 'vue中央事件总线', classify: 'javascript', abstract: 'vue父子组件传值有很多方法，而两个没有关系的组件传值就是vuex和中央事件总线了' },
+        { id: '2', title: 'Vue状态管理之Vuex', classify: 'Node.js', abstract: 'vue使用vuex来管理状态，一般用于大型项目之中' }
+      ],
       total: 0,
       listLoading: false,
       listQuery: {
