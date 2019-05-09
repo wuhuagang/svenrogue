@@ -36,12 +36,10 @@ export const constantRouterMap = [
         path: 'articleList',
         component: () => import('@/views/article/components/list/index'),
         name: 'ArticleList',
-        hidden: true,
         meta: { title: '博客列表', icon: 'list' }
       },
       {
         path: 'articleDetail',
-        hidden: true,
         component: () => import('@/views/article/components/articleDetail'),
         name: 'articleDetail',
         meta: { title: '博客详情', icon: 'detail' }

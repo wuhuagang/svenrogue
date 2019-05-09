@@ -2,7 +2,7 @@
   <div class="navbar">
     <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
     <!--暂时不显示面包屑-->
-    <!--<breadcrumb />-->
+    <breadcrumb />
     <!--登录的网络用户显示头像，提供登出-->
     <el-dropdown v-if="token !==null && token !== undefined && token !==''" class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
