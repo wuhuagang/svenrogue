@@ -7,12 +7,12 @@
       <span class="qq-svg-container"><svg-icon icon-class="qq" class="icon" /></span>
     </div>
     <div class="sign-btn">
-      <a href="http://www.ruixinkeji.club:9200/api-auth/auth/github" class="qq-svg-container"><svg-icon icon-class="github" class="icon" /></a>
-
+      <a href="http://www.ruixinkeji.club:9200/api-auth/auth/github" class="qq-svg-container">
+        <svg-icon icon-class="github" class="icon" />
+      </a>
     </div>
   </div>
 </template>
-<!--<a href="http://www.ruixinkeji.club:9200/api-auth/auth/github" class="qq-svg-container"></a>-->
 <script>
 import openWindow from '@/utils/openWindow'
 
