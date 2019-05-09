@@ -7,7 +7,7 @@ import { getToken } from '@/utils/auth' // getToken from cookie
 
 NProgress.configure({ showSpinner: false })// NProgress configuration
 
-const whiteList = ['/login', '/signup', '/binding', '/index', '/article', '/index/list']// no rdirect whitelist
+const whiteList = ['/login', '/signup', '/binding', '/', '/articleList', '/articleDetail']// no rdirect whitelist
 // 1.访问当前页面没有token，则是外部访问，这种情况下只可以访问博客列表，博客详细，博主详情
 // 2.访问页面时token存在，携带token请求用户信息，展示博客列表，博客详细，博主详情之外的访问权限
 router.beforeEach((to, from, next) => {
