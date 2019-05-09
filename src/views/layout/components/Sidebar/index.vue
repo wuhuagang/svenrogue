@@ -13,7 +13,6 @@
   </el-scrollbar>
 </template>
 <script>
-/*  v-if="token !==null && token !==undefined && token !==''"*/
 import { mapGetters } from 'vuex'
 import variables from '@/styles/variables.scss'
 import SidebarItem from './SidebarItem'
