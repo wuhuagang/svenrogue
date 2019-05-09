@@ -9,12 +9,18 @@
     <h3 class="classify">{{ article.classify }}</h3>
     <h5 style="text-align: center">{{ article.abstract }}</h5>
     <el-container class="multiplex">
-      <span class="svg-container">
-        <svg-icon icon-class="eye-open" />
-      </span>
-      <span style="margin-left: 10px ; margin-right: 10px">{{ article.eyeOpen }}</span>
+      <el-badge :value="article.eyeOpen" :max="2000" class="item" >
+        <span class="svg-container" style="margin-top: 7px">
+          <svg-icon icon-class="view" class="icon"/>
+        </span>
+      </el-badge>
       <el-badge :value="article.like" :max="99" class="item">
-        <el-button size="small">点赞</el-button>
+        <el-button v-if="likeFilled" type="text">
+          <svg-icon icon-class="like_filled" class="icon" @click="handleLike"/>
+        </el-button>
+        <el-button v-else type="text" >
+          <svg-icon icon-class="like" class="icon" @click="handleLike"/>
+        </el-button>
       </el-badge>
     </el-container>
     <el-button type="text" class="detail" icon="el-icon-tickets" @click.native.prevent="displayDetail">查看详情</el-button>
@@ -40,9 +46,17 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      likeFilled: false
+    }
+  },
   methods: {
     displayDetail() {
       this.$router.push({ path: '/articleDetail' })
+    },
+    handleLike() {
+      this.likeFilled = !this.likeFilled
     }
   }
 }
@@ -60,7 +74,7 @@ export default {
   padding: 6px 5px 6px 15px;
   color: #ffd75c;
   vertical-align: middle;
-  width: 30px;
+  width: 60px;
   display: inline-block;
 }
   .detail{
@@ -71,4 +85,20 @@ export default {
   .multiplex{
    text-align: center;
   }
+  .item{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    padding-top: 1px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+.icon {
+  color: #fff;
+  font-size: 30px;
+}
 </style>
