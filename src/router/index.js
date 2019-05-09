@@ -27,17 +27,6 @@ export const constantRouterMap = [
   { path: '/404', component: () => import('@/views/404'), hidden: true },
   { path: '/signup', component: () => import('@/views/social/signup'), hidden: true },
   { path: '/binding', component: () => import('@/views/social/binding'), hidden: true },
-  // {
-  //   path: '/',
-  //   component: Layout,
-  //   redirect: '/dashboard',
-  //   name: '首页',
-  //   hidden: true,
-  //   children: [{
-  //     path: 'dashboard',
-  //     component: () => import('@/views/dashboard/index')
-  //   }]
-  // },
   {
     path: '/',
     component: Layout,
@@ -47,6 +36,7 @@ export const constantRouterMap = [
         path: 'articleList',
         component: () => import('@/views/article/components/list/index'),
         name: 'ArticleList',
+        hidden: true,
         meta: { title: '博客列表', icon: 'list' }
       },
       {
