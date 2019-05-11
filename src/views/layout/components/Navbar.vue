@@ -1,10 +1,9 @@
 <template>
   <div class="navbar">
     <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
-    <!--暂时不显示面包屑-->
     <breadcrumb />
     <!--登录的网络用户显示头像，提供登出-->
-    <el-dropdown v-if="token !==null && token !== undefined && token !==''" class="avatar-container" trigger="click">
+    <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
         <img :src="avatar===null? '/static/logo/404.png':avatar+'?imageView2/1/w/80/h/80'" class="user-avatar" alt="">
         <i class="el-icon-caret-bottom"/>
@@ -20,10 +19,6 @@
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
-    <!--没有登录的网络用户不显示头像等dropdown下拉,提供注册的入口-->
-    <router-link v-else to="/login">
-      <el-button type="info" icon="el-icon-s-custom" style="position: absolute;right: 30px;top: 5px">登录</el-button>
-    </router-link>
   </div>
 </template>
 
