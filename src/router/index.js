@@ -29,7 +29,7 @@ export const constantRouterMap = [
   { path: '/binding', component: () => import('@/views/social/binding'), hidden: true },
   /* 博客的首页，不管是登陆的用户或者未登录的用户*/
   { path: '/', component: () => import('@/views/article/components/list/index'), hidden: true },
-  { path: '/article', component: () => import('@/views/article/components/articleDetail'), hidden: true }
+  { path: '/articleDetail', component: () => import('@/views/article/components/articleDetail'), hidden: true }
 ]
 /**
  * 异步路由表，与用户权限相关，在用户登录时根据用户权限过滤
