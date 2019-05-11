@@ -82,7 +82,7 @@ export default {
     }
   },
   mounted() {
-    this.initTinymce()
+    // this.initTinymce()
   },
   activated() {
     this.initTinymce()
@@ -91,7 +91,7 @@ export default {
     this.destroyTinymce()
   },
   destroyed() {
-    this.destroyTinymce()
+    // this.destroyTinymce()
   },
   methods: {
     initTinymce() {
@@ -183,7 +183,7 @@ export default {
     imageSuccessCBK(arr) {
       const _this = this
       arr.forEach(v => {
-        window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`)
+        window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}"  alt="">`)
       })
     }
   }

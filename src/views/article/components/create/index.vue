@@ -1,36 +1,101 @@
 <template>
   <div class="components-container">
-    <aside>
-      Rich text is a core feature of the management backend, but at the same time it is a place with lots of pits. In the process of selecting rich texts, I also took a lot of detours. The common rich texts on the market have been basically used, and I finally chose Tinymce. See the more detailed rich text comparison and introduction.
-      <a target="_blank" class="link-type" href="https://panjiachen.github.io/vue-element-admin-site/component/rich-editor.html">Documentation</a>
+    <aside>Markdown is based on
+      <a href="https://github.com/nhnent/tui.editor" target="_blank">tui.editor</a> ，simply wrapped with Vue.
+      <a
+        target="_blank"
+        href="https://panjiachen.github.io/vue-element-admin-site/feature/component/markdown-editor.html"
+      >
+        Documentation </a>
     </aside>
-    <div>
-      <tinymce v-model="content" :height="300" />
+
+    <div class="editor-container">
+      <el-tag class="tag-title">
+        Basic:
+      </el-tag>
+      <markdown-editor v-model="content1" height="300px" />
     </div>
-    <div class="editor-content" v-html="content" />
+
+    <div class="editor-container">
+      <el-tag class="tag-title">
+        Markdown Mode:
+      </el-tag>
+      <markdown-editor ref="markdownEditor" v-model="content2" :options="{hideModeSwitch:true,previewStyle:'tab'}" height="200px" />
+    </div>
+
+    <div class="editor-container">
+      <el-tag class="tag-title">
+        Customize Toolbar:
+      </el-tag>
+      <markdown-editor v-model="content3" :options="{ toolbarItems: ['heading','bold','italic']}" />
+    </div>
+
+    <div class="editor-container">
+      <el-tag class="tag-title">
+        I18n:
+      </el-tag>
+      <el-alert
+        :closable="false"
+        title="You can change the language of the admin system to see the effect"
+        type="success"
+      />
+      <markdown-editor ref="markdownEditor" v-model="content4" :language="language" height="300px" />
+    </div>
+
+    <el-button style="margin-top:80px;" type="primary" icon="el-icon-document" @click="getHtml">
+      Get HTML
+    </el-button>
+    <div v-html="html" />
   </div>
 </template>
 
 <script>
-import Tinymce from '@/components/Tinymce'
+import MarkdownEditor from '@/components/MarkdownEditor'
 
+const content = `
+**This is test**
+
+* vue
+* element
+* webpack
+
+`
 export default {
-  name: 'TinymceDemo',
-  components: { Tinymce },
+  name: 'MarkdownDemo',
+  components: { MarkdownEditor },
   data() {
     return {
-      content:
-      `<h1 style="text-align: center;">Welcome to the TinyMCE demo!</h1><p style="text-align: center; font-size: 15px;"><img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png" alt="TinyMCE Logo" width="110" height="97" /><ul>
-        <li>Our <a href="//www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li><li>Have a specific question? Visit the <a href="https://community.tinymce.com/forum/">Community Forum</a>.</li><li>We also offer enterprise grade support as part of <a href="https://tinymce.com/pricing">TinyMCE premium subscriptions</a>.</li>
-      </ul>`
+      content1: content,
+      content2: content,
+      content3: content,
+      content4: content,
+      html: '',
+      languageTypeList: {
+        'en': 'en_US',
+        'zh': 'zh_CN',
+        'es': 'es_ES'
+      }
+    }
+  },
+  computed: {
+    language() {
+      return this.languageTypeList['en']
+    }
+  },
+  methods: {
+    getHtml() {
+      this.html = this.$refs.markdownEditor.getHtml()
+      console.log(this.html)
     }
   }
 }
 </script>
 
 <style scoped>
-.editor-content{
-  margin-top: 20px;
+.editor-container{
+  margin-bottom: 30px;
+}
+.tag-title{
+  margin-bottom: 5px;
 }
 </style>
-
