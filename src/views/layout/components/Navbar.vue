@@ -5,11 +5,11 @@
     <!--登录的网络用户显示头像，提供登出-->
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
-        <img :src="avatar===null? '/static/logo/404.png':avatar+'?imageView2/1/w/80/h/80'" class="user-avatar" alt="">
+        <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar" alt="糟糕！没有找到头像">
         <i class="el-icon-caret-bottom"/>
       </div>
       <el-dropdown-menu slot="dropdown" class="user-dropdown">
-        <router-link class="inlineBlock" to="/">
+        <router-link class="inlineBlock" to="/index">
           <el-dropdown-item>
             Home
           </el-dropdown-item>

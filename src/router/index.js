@@ -27,9 +27,13 @@ export const constantRouterMap = [
   { path: '/404', component: () => import('@/views/404'), hidden: true },
   { path: '/signup', component: () => import('@/views/social/signup'), hidden: true },
   { path: '/binding', component: () => import('@/views/social/binding'), hidden: true },
-  /* 博客的首页，不管是登陆的用户或者未登录的用户*/
-  { path: '/', component: () => import('@/views/article/components/list/index'), hidden: true },
-  { path: '/articleDetail', component: () => import('@/views/article/components/articleDetail'), hidden: true }
+  { path: '/', component: () => import('@/views/article/components/list/index'), hidden: true }, // 博客的首页，不管是登陆的用户或者未登录的用户
+  { path: '/articleDetail', component: () => import('@/views/article/components/articleDetail'), hidden: true },
+  {
+    path: '/index',
+    component: Layout,
+    children: []
+  }// 首页，当用户没有任何权限时，登录显示空白首页
 ]
 /**
  * 异步路由表，与用户权限相关，在用户登录时根据用户权限过滤
