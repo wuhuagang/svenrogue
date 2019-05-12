@@ -45,7 +45,8 @@ export default {
     return {
       articles: [
         { id: '1', title: 'vue中央事件总线', classify: 'javascript', abstract: 'vue父子组件传值有很多方法，而两个没有关系的组件传值就是vuex和中央事件总线了', eyeOpen: 9999, like: 998 },
-        { id: '2', title: 'Vue状态管理之Vuex', classify: 'Node.js', abstract: 'vue使用vuex来管理状态，一般用于大型项目之中', eyeOpen: 9999, like: 10 }
+        { id: '2', title: 'Vue状态管理之Vuex', classify: 'Node.js', abstract: 'vue使用vuex来管理状态，一般用于大型项目之中', eyeOpen: 9999, like: 10 },
+        { id: '3', title: 'Vue状态管理之Vuex', classify: 'Node.js', abstract: 'vue使用vuex来管理状态，一般用于大型项目之中', eyeOpen: 9999, like: 10 }
       ],
       total: 0,
       listLoading: false,

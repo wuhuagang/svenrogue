@@ -114,7 +114,7 @@ export const asyncRouterMap = [
         path: 'create',
         component: () => import('@/views/article/components/create/index'),
         name: 'CreateArticle',
-        meta: { title: '添加文章', icon: 'edit' }
+        meta: { title: '添加文章', icon: 'edit', keepalive: true }
       },
       {
         path: 'edit/:id(\\d+)',

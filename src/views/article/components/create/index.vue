@@ -1,11 +1,13 @@
 <template>
   <div class="components-container">
     <div class="editor-container">
-      <el-tag class="tag-title">
-        Basic:
-      </el-tag>
-      <markdown-editor v-model="content1" height="300px" />
+      <el-input class="article-title" placeholder="请输入标题"/>
+      <markdown-editor v-model="content1" style="height: 450px"/>
     </div>
+    <el-button-group >
+      <el-button type="primary" style="margin: 10px 10px 10px 10px" @click="publishArticle">发布博客</el-button>
+      <el-button type="primary" style="margin: 10px 10px 10px 10px" @click="publishArticle">存为草稿</el-button>
+    </el-button-group>
   </div>
 </template>
 
@@ -13,13 +15,7 @@
 import MarkdownEditor from '@/components/MarkdownEditor'
 
 const content = `
-**This is test**
-
-* vue
-* element
-* webpack
-
-`
+请输入内容`
 export default {
   name: 'MarkdownDemo',
   components: { MarkdownEditor },
@@ -45,6 +41,9 @@ export default {
   methods: {
     getHtml() {
       this.html = this.$refs.markdownEditor.getHtml()
+    },
+    publishArticle() {
+
     }
   }
 }
@@ -54,7 +53,7 @@ export default {
 .editor-container{
   margin-bottom: 30px;
 }
-.tag-title{
+.article-title{
   margin-bottom: 5px;
 }
 </style>
